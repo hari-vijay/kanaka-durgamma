@@ -9,6 +9,10 @@ import {
 
 import { useState } from "react";
 
+const API_BASE_URL =
+  import.meta.env.VITE_API_BASE_URL ||
+  "http://localhost:8080/api";
+
 import { useLanguage } from "../context/LanguageContext";
 
 function DonationSection() {
@@ -82,7 +86,7 @@ function DonationSection() {
       }
 
       const response = await fetch(
-        "http://localhost:8080/api/donations/create-order",
+        `${API_BASE_URL}/donations/create-order`,
         {
           method: "POST",
           headers: {
@@ -124,7 +128,7 @@ function DonationSection() {
         handler: async function (paymentResponse) {
   try {
     const verifyResponse = await fetch(
-      "http://localhost:8080/api/donations/verify-payment",
+      `${API_BASE_URL}/donations/verify-payment`,
       {
         method: "POST",
         headers: {

@@ -2,6 +2,10 @@ import { useEffect, useState } from "react";
 
 import { useLanguage } from "../context/LanguageContext";
 
+const API_BASE_URL =
+  import.meta.env.VITE_API_BASE_URL ||
+  "http://localhost:8080/api";
+
 import {
   UserRound,
   Camera,
@@ -43,7 +47,7 @@ function DeekshaSection() {
       setCountLoading(true);
 
       const response = await fetch(
-        "http://localhost:8080/api/deeksha/count"
+        `${API_BASE_URL}/deeksha/count`
       );
 
       if (!response.ok) {
@@ -115,7 +119,7 @@ function DeekshaSection() {
       }
 
       const response = await fetch(
-        "http://localhost:8080/api/deeksha/register",
+        `${API_BASE_URL}/deeksha/register`,
         {
           method: "POST",
           body: formData,

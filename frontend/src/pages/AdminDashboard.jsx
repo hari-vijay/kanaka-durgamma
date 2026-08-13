@@ -6,7 +6,8 @@ const API_BASE_URL =
   "http://localhost:8080/api";
 
 const BACKEND_BASE_URL =
-  API_BASE_URL.replace(/\/api\/?$/, "");
+  import.meta.env.VITE_BACKEND_BASE_URL ||
+  "http://localhost:8080";
 
 import {
   LayoutDashboard,
