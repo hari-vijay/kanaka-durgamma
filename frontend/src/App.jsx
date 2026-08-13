@@ -33,6 +33,11 @@ import { TempleProvider } from "./context/TempleContext";
 import { LanguageProvider } from "./context/LanguageContext";
 
 
+const API_BASE_URL =
+  import.meta.env.VITE_API_BASE_URL ||
+  "http://localhost:8080/api";
+
+
 function Home() {
 
   const [backendStatus, setBackendStatus] =
@@ -133,7 +138,6 @@ function Home() {
 /* =========================================================
    PROTECTED ADMIN ROUTE
 ========================================================= */
-
 function ProtectedAdminRoute() {
 
   const [checking, setChecking] =
@@ -151,7 +155,7 @@ function ProtectedAdminRoute() {
       try {
 
         const response = await fetch(
-          "http://localhost:8080/api/admin/session",
+          `${API_BASE_URL}/admin/session`,
           {
             method: "GET",
             credentials: "include",
@@ -203,7 +207,6 @@ function ProtectedAdminRoute() {
 
   }, []);
 
-
   if (checking) {
 
     return (
@@ -225,7 +228,6 @@ function ProtectedAdminRoute() {
     );
   }
 
-
   if (!authenticated) {
 
     return (
@@ -235,7 +237,6 @@ function ProtectedAdminRoute() {
       />
     );
   }
-
 
   return <AdminDashboard />;
 }
