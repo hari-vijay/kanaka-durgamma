@@ -1,6 +1,13 @@
 import { useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+const API_BASE_URL =
+  import.meta.env.VITE_API_BASE_URL ||
+  "http://localhost:8080/api";
+
+const BACKEND_BASE_URL =
+  API_BASE_URL.replace(/\/api\/?$/, "");
+
 import {
   LayoutDashboard,
   Newspaper,
@@ -430,7 +437,7 @@ const [galleryDeleteLoading, setGalleryDeleteLoading] =
       setError("");
 
       const response = await fetch(
-        "http://localhost:8080/api/deeksha/registrations"
+        `${API_BASE_URL}/deeksha/registrations`
       );
 
 
@@ -483,7 +490,7 @@ const [galleryDeleteLoading, setGalleryDeleteLoading] =
       setDonationsError("");
 
       const response = await fetch(
-        "http://localhost:8080/api/donations/admin/all"
+        `${API_BASE_URL}/donations/admin/all`
       );
 
       if (!response.ok) {
@@ -605,7 +612,7 @@ const [galleryDeleteLoading, setGalleryDeleteLoading] =
       };
 
       const response = await fetch(
-        `http://localhost:8080/api/deeksha/${deekshaEditingItem.id}`,
+        `${API_BASE_URL}/deeksha/${deekshaEditingItem.id}`,
         {
           method: "PUT",
           headers: {
@@ -658,7 +665,7 @@ const [galleryDeleteLoading, setGalleryDeleteLoading] =
       setDeekshaDeleteLoading(registration.id);
 
       const response = await fetch(
-        `http://localhost:8080/api/deeksha/${registration.id}`,
+        `${API_BASE_URL}/deeksha/${registration.id}`,
         {
           method: "DELETE",
         }
@@ -702,7 +709,7 @@ const fetchGalleryItems = async () => {
     setGalleryError("");
 
     const response = await fetch(
-      "http://localhost:8080/api/gallery/admin"
+      `${API_BASE_URL}/gallery/admin`
     );
 
     if (!response.ok) {
@@ -748,7 +755,7 @@ const fetchGalleryItems = async () => {
       setUpdatesError("");
 
       const response = await fetch(
-        "http://localhost:8080/api/updates/admin"
+        `${API_BASE_URL}/updates/admin`
       );
 
       if (!response.ok) {
@@ -795,7 +802,7 @@ const fetchGalleryItems = async () => {
       setScheduleError("");
 
       const response = await fetch(
-        "http://localhost:8080/api/dasara-schedule/admin"
+        `${API_BASE_URL}/dasara-schedule/admin`
       );
 
       if (!response.ok) {
@@ -841,7 +848,7 @@ const fetchGalleryItems = async () => {
       setPillarsLoading(true);
       setPillarsError("");
       const response = await fetch(
-        "http://localhost:8080/api/temple/pillars"
+        `${API_BASE_URL}/temple/pillars`
       );
       if (!response.ok) throw new Error("Failed to fetch temple pillars");
       const data = await response.json();
@@ -936,8 +943,8 @@ const fetchGalleryItems = async () => {
       };
 
       const url = pillarsEditingItem
-        ? `http://localhost:8080/api/temple/pillars/${pillarsEditingItem.id}`
-        : "http://localhost:8080/api/temple/pillars";
+        ? `${API_BASE_URL}/temple/pillars/${pillarsEditingItem.id}`
+        : `${API_BASE_URL}/temple/pillars`;
 
       const response = await fetch(url, {
         method: pillarsEditingItem ? "PUT" : "POST",
@@ -957,7 +964,7 @@ const fetchGalleryItems = async () => {
         photoData.append("file", pillarsForm.photoFile);
 
         const photoResponse = await fetch(
-          `http://localhost:8080/api/temple/pillars/${savedItem.id}/photo`,
+          `${API_BASE_URL}/temple/pillars/${savedItem.id}/photo`,
           {
             method: "POST",
             body: photoData,
@@ -984,7 +991,7 @@ const fetchGalleryItems = async () => {
     try {
       setPillarsDeleteLoading(item.id);
       const response = await fetch(
-        `http://localhost:8080/api/temple/pillars/${item.id}`,
+        `${API_BASE_URL}/temple/pillars/${item.id}`,
         { method: "DELETE" }
       );
       if (!response.ok) {
@@ -1056,7 +1063,7 @@ const fetchGalleryItems = async () => {
       setChangePasswordSaving(true);
 
       const response = await fetch(
-        "http://localhost:8080/api/admin/change-password",
+        `${API_BASE_URL}/admin/change-password`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -1125,7 +1132,7 @@ const fetchGalleryItems = async () => {
       );
 
       const response = await fetch(
-        `http://localhost:8080/api/temple/settings/image/${type}`,
+        `${API_BASE_URL}/temple/settings/image/${type}`,
         {
           method: "POST",
           body: formData,
@@ -1202,7 +1209,7 @@ const fetchGalleryItems = async () => {
       return "";
     }
 
-    return `http://localhost:8080${path}?v=${templeImageVersion[type]}`;
+    return `${BACKEND_BASE_URL}${path}?v=${templeImageVersion[type]}`;
   };
 
   const openTempleImageViewer = (type, path, title) => {
@@ -1241,7 +1248,7 @@ const fetchGalleryItems = async () => {
       setTempleSettingsSuccess("");
 
       const response = await fetch(
-        "http://localhost:8080/api/temple/settings"
+        `${API_BASE_URL}/temple/settings`
       );
 
       if (response.status === 204) {
@@ -1328,7 +1335,7 @@ const fetchGalleryItems = async () => {
       setTempleSettingsSuccess("");
 
       const response = await fetch(
-        "http://localhost:8080/api/temple/settings",
+        `${API_BASE_URL}/temple/settings`,
         {
           method: "PUT",
           headers: {
@@ -1528,8 +1535,8 @@ const fetchGalleryItems = async () => {
 
       const url =
         scheduleEditingItem
-          ? `http://localhost:8080/api/dasara-schedule/${scheduleEditingItem.id}`
-          : "http://localhost:8080/api/dasara-schedule";
+          ? `${API_BASE_URL}/dasara-schedule/${scheduleEditingItem.id}`
+          : `${API_BASE_URL}/dasara-schedule`;
 
       const method =
         scheduleEditingItem
@@ -1605,7 +1612,7 @@ const fetchGalleryItems = async () => {
       );
 
       const response = await fetch(
-        `http://localhost:8080/api/dasara-schedule/${item.id}`,
+        `${API_BASE_URL}/dasara-schedule/${item.id}`,
         {
           method: "DELETE",
         }
@@ -1769,7 +1776,7 @@ const handleGallerySave = async (event) => {
       }
 
       const response = await fetch(
-        `http://localhost:8080/api/gallery/admin/${galleryEditingItem.id}`,
+        `${API_BASE_URL}/gallery/admin/${galleryEditingItem.id}`,
         {
           method: "PUT",
           body: formData,
@@ -1819,7 +1826,7 @@ const handleGallerySave = async (event) => {
 
 
       const response = await fetch(
-        "http://localhost:8080/api/gallery/admin",
+        `${API_BASE_URL}/gallery/admin`,
         {
           method: "POST",
           body: formData,
@@ -1884,7 +1891,7 @@ const handleGalleryDelete = async (item) => {
 
 
     const response = await fetch(
-      `http://localhost:8080/api/gallery/admin/${item.id}`,
+      `${API_BASE_URL}/gallery/admin/${item.id}`,
       {
         method: "DELETE",
       }
@@ -2026,8 +2033,8 @@ const handleGalleryDelete = async (item) => {
 
       const url =
         updatesEditingItem
-          ? `http://localhost:8080/api/updates/${updatesEditingItem.id}`
-          : "http://localhost:8080/api/updates";
+          ? `${API_BASE_URL}/updates/${updatesEditingItem.id}`
+          : `${API_BASE_URL}/updates`;
 
       const method =
         updatesEditingItem
@@ -2097,7 +2104,7 @@ const handleGalleryDelete = async (item) => {
       setUpdatesDeleteLoading(item.id);
 
       const response = await fetch(
-        `http://localhost:8080/api/updates/${item.id}`,
+        `${API_BASE_URL}/updates/${item.id}`,
         {
           method: "DELETE",
         }
@@ -3139,7 +3146,7 @@ const paginatedGalleryItems =
     }
 
 
-    return `http://localhost:8080${profilePhotoPath}`;
+    return `${BACKEND_BASE_URL}${profilePhotoPath}`;
 
   };
 
@@ -4480,7 +4487,7 @@ const renderGallery = () => {
                               "http"
                             )
                               ? item.filePath
-                              : `http://localhost:8080${item.filePath}`
+                              : `${BACKEND_BASE_URL}${item.filePath}`
                           }
                           alt={
                             item.title ||
@@ -7982,7 +7989,7 @@ const renderGallery = () => {
           onClick={async () => {
             try {
               await fetch(
-                "http://localhost:8080/api/admin/logout",
+                `${API_BASE_URL}/admin/logout`,
                 {
                   method: "POST",
                   credentials: "include",
