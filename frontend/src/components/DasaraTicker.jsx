@@ -5,6 +5,10 @@ import {
   ArrowRight,
 } from "lucide-react";
 
+const API_BASE_URL =
+  import.meta.env.VITE_API_BASE_URL ||
+  "http://localhost:8080/api";
+
 
 function DasaraTicker({
   variant = "hero",
@@ -32,7 +36,7 @@ function DasaraTicker({
       try {
 
         const response = await fetch(
-          "http://localhost:8080/api/updates"
+          `${API_BASE_URL}/updates`
         );
 
 
@@ -270,7 +274,7 @@ function DasaraTicker({
         </div>
 
 
- 
+
 
 
     {/* VIEW ALL */}

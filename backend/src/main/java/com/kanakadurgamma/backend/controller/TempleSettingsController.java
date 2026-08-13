@@ -2,6 +2,10 @@ package com.kanakadurgamma.backend.controller;
 
 import com.kanakadurgamma.backend.entity.TempleSettings;
 import com.kanakadurgamma.backend.repository.TempleSettingsRepository;
+import com.cloudinary.Cloudinary;
+import com.cloudinary.utils.ObjectUtils;
+import java.net.URI;
+import java.util.Map;
 
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.Resource;
@@ -22,14 +26,17 @@ import java.util.List;
 public class TempleSettingsController {
 
     private final TempleSettingsRepository repository;
+    private final Cloudinary cloudinary;
 
     private final Path uploadDirectory =
             Paths.get("uploads/temple-settings");
 
     public TempleSettingsController(
-            TempleSettingsRepository repository) {
+            TempleSettingsRepository repository,
+            Cloudinary cloudinary) {
 
         this.repository = repository;
+        this.cloudinary = cloudinary;
 
         try {
 
@@ -256,17 +263,24 @@ public class TempleSettingsController {
                     System.currentTimeMillis() +
                     extension;
 
-            Path target =
-                    uploadDirectory.resolve(fileName);
-
-            Files.copy(
-                    file.getInputStream(),
-                    target,
-                    StandardCopyOption.REPLACE_EXISTING
-            );
+            Map uploadResult =
+                    cloudinary.uploader().upload(
+                            file.getBytes(),
+                            ObjectUtils.asMap(
+                                    "public_id",
+                                    "kanaka-durgamma/temple-settings/" +
+                                            type +
+                                            "-" +
+                                            System.currentTimeMillis(),
+                                    "resource_type",
+                                    "image"
+                            )
+                    );
 
             String imagePath =
-                    "/uploads/temple-settings/" + fileName;
+                    String.valueOf(
+                            uploadResult.get("secure_url")
+                    );
 
             if (type.equals("hero")) {
 
@@ -360,6 +374,15 @@ public class TempleSettingsController {
 
                 return ResponseEntity
                         .notFound()
+                        .build();
+            }
+
+            if (imagePath.startsWith("http://")
+                    || imagePath.startsWith("https://")) {
+
+                return ResponseEntity
+                        .status(HttpStatus.FOUND)
+                        .location(URI.create(imagePath))
                         .build();
             }
 

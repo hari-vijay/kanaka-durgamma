@@ -12,6 +12,7 @@ import DasaraTicker from "./components/DasaraTicker";
 import Hero from "./components/Hero";
 import QuickLinks from "./components/QuickLinks";
 import DasaraSection from "./components/DasaraSection";
+import UpdatesSection from "./components/UpdatesSection";
 import AboutTemple from "./components/AboutTemple";
 import TempleHistory from "./components/TempleHistory";
 import TemplePillars from "./components/TemplePillars";
@@ -89,6 +90,8 @@ function Home() {
       <QuickLinks />
 
       <DasaraSection />
+
+      <UpdatesSection />
 
       <AboutTemple />
 
@@ -197,6 +200,7 @@ function ProtectedAdminRoute() {
         }
 
       }
+
     };
 
     checkAdminSession();
@@ -226,6 +230,7 @@ function ProtectedAdminRoute() {
         Checking administrator access...
       </main>
     );
+
   }
 
   if (!authenticated) {
@@ -236,9 +241,11 @@ function ProtectedAdminRoute() {
         replace
       />
     );
+
   }
 
   return <AdminDashboard />;
+
 }
 
 
@@ -327,7 +334,9 @@ function App() {
       </TempleProvider>
 
     </BrowserRouter>
+
   );
+
 }
 
 export default App;
