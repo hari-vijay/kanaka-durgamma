@@ -12,7 +12,7 @@ import DasaraTicker from "./components/DasaraTicker";
 import Hero from "./components/Hero";
 import QuickLinks from "./components/QuickLinks";
 import DasaraSection from "./components/DasaraSection";
-import UpdatesSection from "./components/UpdatesSection";
+import UpdatesSection from "./UpdatesSection";
 import AboutTemple from "./components/AboutTemple";
 import TempleHistory from "./components/TempleHistory";
 import TemplePillars from "./components/TemplePillars";
