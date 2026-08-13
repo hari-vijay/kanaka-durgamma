@@ -1,0 +1,461 @@
+
+/* =========================================
+   ADMIN UPDATES
+========================================= */
+
+.admin-updates-header-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.admin-updates-add-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+
+  padding: 9px 14px;
+
+  border: 1px solid var(--color-gold-400);
+  border-radius: var(--radius-md);
+
+  color: var(--color-white);
+  background: var(--color-maroon-600);
+
+  font-size: 10px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.admin-updates-add-button:hover {
+  background: var(--color-maroon-700);
+  transform: translateY(-1px);
+}
+
+
+/* =========================================
+   UPDATES GRID
+========================================= */
+
+.admin-updates-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 18px;
+}
+
+
+/* =========================================
+   UPDATE CARD
+========================================= */
+
+.admin-update-card {
+  display: flex;
+  flex-direction: column;
+
+  min-width: 0;
+
+  padding: 20px;
+
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+
+  background: var(--color-white);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.admin-update-card:hover {
+  transform: translateY(-2px);
+
+  border-color:
+    rgba(180, 123, 11, 0.3);
+
+  box-shadow: var(--shadow-soft);
+}
+
+
+/* =========================================
+   UPDATE TOP
+========================================= */
+
+.admin-update-top {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 12px;
+
+  padding-bottom: 12px;
+
+  border-bottom:
+    1px solid var(--border-light);
+}
+
+.admin-update-category {
+  color: var(--color-gold-700);
+
+  font-size: 8px;
+  font-weight: 800;
+
+  letter-spacing: 0.7px;
+  text-transform: uppercase;
+}
+
+
+/* =========================================
+   UPDATE CONTENT
+========================================= */
+
+.admin-update-content {
+  flex: 1;
+
+  padding: 16px 0;
+}
+
+.admin-update-content h3 {
+  margin: 0;
+
+  color: var(--color-text-primary);
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 19px;
+  font-weight: 600;
+
+  line-height: 1.35;
+}
+
+.admin-update-content p {
+  margin-top: 8px;
+
+  color: var(--color-text-secondary);
+
+  font-size: 11px;
+  line-height: 1.7;
+
+  white-space: pre-wrap;
+
+  overflow-wrap: anywhere;
+}
+
+
+/* =========================================
+   UPDATE META
+========================================= */
+
+.admin-update-meta {
+  padding: 10px 0;
+
+  border-top:
+    1px solid var(--border-light);
+
+  color: var(--color-text-secondary);
+
+  font-size: 9px;
+}
+
+
+/* =========================================
+   UPDATE ACTIONS
+========================================= */
+
+.admin-update-actions {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  padding-top: 12px;
+}
+
+.admin-update-edit-button,
+.admin-update-delete-button {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 5px;
+
+  padding: 7px 10px;
+
+  border-radius: var(--radius-md);
+
+  font-size: 9px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.admin-update-edit-button {
+  border: 1px solid var(--border-light);
+
+  color: var(--color-maroon-600);
+
+  background: var(--color-white);
+}
+
+.admin-update-edit-button:hover {
+  border-color: var(--color-gold-400);
+  background: var(--color-cream);
+}
+
+.admin-update-delete-button {
+  border:
+    1px solid rgba(139, 30, 30, 0.18);
+
+  color: var(--color-maroon-600);
+
+  background:
+    rgba(139, 30, 30, 0.04);
+}
+
+.admin-update-delete-button:hover {
+  background:
+    rgba(139, 30, 30, 0.08);
+}
+
+.admin-update-delete-button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+
+/* =========================================
+   UPDATE MODAL
+========================================= */
+
+.admin-updates-modal {
+  width: min(560px, 92vw);
+
+  max-height: 90vh;
+
+  overflow-y: auto;
+
+  border:
+    1px solid var(--border-light);
+
+  border-radius: var(--radius-lg);
+
+  background: var(--color-white);
+
+  box-shadow:
+    0 25px 70px
+    rgba(0, 0, 0, 0.22);
+}
+
+
+/* =========================================
+   UPDATE FORM
+========================================= */
+
+.admin-updates-form {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 16px;
+
+  padding: 22px;
+}
+
+.admin-updates-form label {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 6px;
+}
+
+.admin-updates-form label > span {
+  color: var(--color-text-primary);
+
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.admin-updates-form input[type="text"],
+.admin-updates-form textarea,
+.admin-updates-form select {
+  width: 100%;
+
+  box-sizing: border-box;
+
+  padding: 10px 12px;
+
+  border:
+    1px solid var(--border-light);
+
+  border-radius: var(--radius-md);
+
+  outline: none;
+
+  color: var(--color-text-primary);
+
+  background: var(--color-white);
+
+  font-family: inherit;
+  font-size: 11px;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.admin-updates-form textarea {
+  resize: vertical;
+  min-height: 110px;
+}
+
+.admin-updates-form input:focus,
+.admin-updates-form textarea:focus,
+.admin-updates-form select:focus {
+  border-color:
+    var(--color-gold-400);
+
+  box-shadow:
+    0 0 0 3px
+    rgba(180, 123, 11, 0.08);
+}
+
+
+/* =========================================
+   UPDATE ACTIVE TOGGLE
+========================================= */
+
+.admin-updates-active-toggle {
+  flex-direction: row !important;
+
+  align-items: center;
+
+  gap: 8px !important;
+
+  padding: 10px 12px;
+
+  border:
+    1px solid var(--border-light);
+
+  border-radius: var(--radius-md);
+
+  background: var(--color-cream);
+}
+
+.admin-updates-active-toggle input {
+  width: 15px;
+  height: 15px;
+
+  margin: 0;
+}
+
+.admin-updates-active-toggle span {
+  font-size: 10px !important;
+}
+
+
+/* =========================================
+   UPDATE SAVE BUTTON
+========================================= */
+
+.admin-updates-save-button {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 10px 16px;
+
+  border:
+    1px solid var(--color-gold-400);
+
+  border-radius: var(--radius-md);
+
+  color: var(--color-white);
+
+  background:
+    var(--color-maroon-600);
+
+  font-size: 10px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.admin-updates-save-button:hover:not(:disabled) {
+  background:
+    var(--color-maroon-700);
+
+  transform: translateY(-1px);
+}
+
+.admin-updates-save-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 900px) {
+
+  .admin-updates-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+
+@media (max-width: 600px) {
+
+  .admin-updates-header-actions {
+    width: 100%;
+  }
+
+  .admin-updates-header-actions button {
+    flex: 1;
+  }
+
+}
+
+
+@media (max-width: 480px) {
+
+  .admin-updates-header-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .admin-updates-grid {
+    grid-template-columns: 1fr;
+  }
+
+}

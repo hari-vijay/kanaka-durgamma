@@ -1,0 +1,467 @@
+/* =========================================
+   DASARA SCHEDULE PAGE
+   ========================================= */
+
+.dasara-schedule-page {
+  min-height: 100vh;
+
+  background:
+    linear-gradient(
+      180deg,
+      #fffaf0 0%,
+      #fffaf2 100%
+    );
+
+  color: #241613;
+}
+
+
+/* =========================================
+   HEADER
+   ========================================= */
+
+.dasara-schedule-header {
+  padding:
+    32px 0
+    38px;
+
+  border-bottom:
+    1px solid
+    rgba(120, 60, 20, 0.12);
+}
+
+.dasara-back-home {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 5px;
+
+  margin-bottom: 30px;
+
+  color: #8f1717;
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  text-decoration: none;
+}
+
+.dasara-back-home:hover {
+  color: #b21e1e;
+}
+
+.dasara-page-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+
+  margin-left: 28px;
+
+  margin-bottom: 10px;
+
+  color: #a66a00;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+.dasara-page-eyebrow svg {
+   
+    
+  color: #797272;
+}
+
+.dasara-schedule-header h1 {
+  max-width: 850px;
+
+  margin: 0;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: clamp(
+    48px,
+    6vw,
+    76px
+  );
+
+  line-height: 1.05;
+
+  letter-spacing: -2px;
+
+  color: #241613;
+}
+
+.dasara-schedule-header h1 span {
+  color: #991b1b;
+}
+
+.dasara-schedule-header p {
+  max-width: 760px;
+
+  margin:
+    18px 0
+    0;
+
+  color: #665653;
+
+  font-size: 15px;
+
+  line-height: 1.7;
+}
+
+
+/* =========================================
+   CONTENT
+   ========================================= */
+
+.dasara-schedule-content {
+  padding:
+    42px 0
+    80px;
+}
+
+
+/* =========================================
+   LIST
+   ========================================= */
+
+.dasara-schedule-list {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 20px;
+
+  max-width: 1220px;
+
+  margin-inline: auto;
+}
+
+
+/* =========================================
+   CARD
+   ========================================= */
+
+.dasara-schedule-card {
+  display: grid;
+
+  grid-template-columns:
+    150px
+    minmax(0, 1fr)
+    auto;
+
+  align-items: center;
+
+  gap: 30px;
+
+  padding:
+    32px 36px;
+
+  border:
+    1px solid
+    rgba(120, 60, 20, 0.12);
+
+  border-radius: 20px;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 8px 28px
+    rgba(70, 25, 10, 0.045);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.dasara-schedule-card:hover {
+  transform: translateY(-2px);
+
+  border-color:
+    rgba(153, 27, 27, 0.22);
+
+  box-shadow:
+    0 14px 35px
+    rgba(70, 25, 10, 0.08);
+}
+
+
+/* =========================================
+   DAY
+   ========================================= */
+
+.dasara-schedule-day {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 5px;
+}
+
+.dasara-schedule-number {
+  color:
+    rgba(153, 27, 27, 0.18);
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 56px;
+
+  line-height: 1;
+
+  font-weight: 700;
+}
+
+.dasara-schedule-day-name {
+  color: #776a66;
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  letter-spacing: 0.7px;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================================
+   MAIN CONTENT
+   ========================================= */
+
+.dasara-schedule-main {
+  min-width: 0;
+}
+
+.dasara-schedule-category {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: #b07800;
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  letter-spacing: 1px;
+
+  text-transform: uppercase;
+}
+
+.dasara-schedule-main h2 {
+  margin: 0;
+
+  color: #251714;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 28px;
+
+  line-height: 1.2;
+}
+
+.dasara-schedule-main p {
+  max-width: 760px;
+
+  margin:
+    10px 0
+    15px;
+
+  color: #665653;
+
+  font-size: 13px;
+
+  line-height: 1.65;
+}
+
+
+/* =========================================
+   META
+   ========================================= */
+
+.dasara-schedule-meta {
+  display: flex;
+
+  align-items: center;
+
+  flex-wrap: wrap;
+
+  gap: 18px;
+}
+
+.dasara-schedule-meta span {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 6px;
+
+  color: #766864;
+
+  font-size: 11px;
+
+  font-weight: 600;
+}
+
+.dasara-schedule-meta svg {
+  color: #a66a00;
+}
+
+
+/* =========================================
+   STATUS
+   ========================================= */
+
+.dasara-schedule-status {
+  padding:
+    7px 11px;
+
+  border-radius: 7px;
+
+  font-size: 9px;
+
+  font-weight: 800;
+
+  letter-spacing: 0.6px;
+
+  white-space: nowrap;
+}
+
+.dasara-schedule-status.today {
+  color: #991b1b;
+
+  background: #fee2e2;
+}
+
+.dasara-schedule-status.completed {
+  color: #166534;
+
+  background: #dcfce7;
+}
+
+.dasara-schedule-status.upcoming {
+  color: #92400e;
+
+  background: #fef3c7;
+}
+
+
+/* =========================================
+   STATE
+   ========================================= */
+
+.dasara-schedule-state {
+  min-height: 300px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  color: #776a66;
+
+  font-size: 14px;
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 800px) {
+
+  .dasara-schedule-header {
+    padding:
+      24px 0
+      34px;
+  }
+
+  .dasara-back-home {
+    margin-bottom: 24px;
+  }
+
+  .dasara-schedule-header h1 {
+    font-size: 46px;
+
+    letter-spacing: -1px;
+  }
+
+  .dasara-schedule-card {
+    grid-template-columns:
+      90px
+      minmax(0, 1fr);
+
+    gap: 20px;
+
+    padding: 24px;
+  }
+
+  .dasara-schedule-status {
+    grid-column: 2;
+
+    justify-self: start;
+  }
+
+  .dasara-schedule-number {
+    font-size: 45px;
+  }
+
+}
+
+
+@media (max-width: 550px) {
+
+  .dasara-schedule-header {
+    padding:
+      22px 0
+      30px;
+  }
+
+  .dasara-back-home {
+    margin-bottom: 20px;
+  }
+
+  .dasara-schedule-header h1 {
+    font-size: 38px;
+  }
+
+  .dasara-schedule-content {
+    padding:
+      34px 0
+      60px;
+  }
+
+  .dasara-schedule-card {
+    grid-template-columns: 1fr;
+
+    gap: 16px;
+
+    padding: 22px;
+  }
+
+  .dasara-schedule-status {
+    grid-column: auto;
+  }
+
+  .dasara-schedule-number {
+    font-size: 42px;
+  }
+
+  .dasara-schedule-main h2 {
+    font-size: 23px;
+  }
+
+}
